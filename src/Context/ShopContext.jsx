@@ -7,7 +7,7 @@ const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
 
   useEffect(() => {
-    fetch('http://13.60.170.233:80/allproducts')
+    fetch('https://13.60.170.233:443/allproducts')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -22,7 +22,7 @@ const ShopContextProvider = (props) => {
 
     const token = localStorage.getItem('auth-token');
     if (token) {
-      fetch('http://13.60.170.233:80/getcart', {
+      fetch('https://13.60.170.233:443/getcart', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -62,7 +62,7 @@ const ShopContextProvider = (props) => {
 
     const token = localStorage.getItem('auth-token');
     if (token) {
-      fetch('http://13.60.170.233:80/addtocart', {
+      fetch('https://13.60.170.233:443/addtocart', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -91,7 +91,7 @@ const ShopContextProvider = (props) => {
 
     const token = localStorage.getItem('auth-token');
     if (token) {
-      fetch('http://13.60.170.233:80/removefromcart', {
+      fetch('https://13.60.170.233:443/removefromcart', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

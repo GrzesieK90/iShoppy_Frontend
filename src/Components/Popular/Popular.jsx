@@ -6,7 +6,7 @@ const Popular = () => {
   const [popularProducts, setPopularProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://13.60.170.233:3000/popularinwomen')
+    fetch('http://192.168.1.107:3000/popularinwomen')
       .then((response) => response.json())
       .then((data) => setPopularProducts(data));
   }, []);

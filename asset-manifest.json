@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/iShoppy_Frontend/static/css/main.8d097122.css",
-    "main.js": "/iShoppy_Frontend/static/js/main.1d697c36.js",
+    "main.js": "/iShoppy_Frontend/static/js/main.ac38bba9.js",
     "static/js/453.8ab44547.chunk.js": "/iShoppy_Frontend/static/js/453.8ab44547.chunk.js",
     "static/media/exclusive_image.png": "/iShoppy_Frontend/static/media/exclusive_image.7c67aa4e2b6a95f57d87.png",
     "static/media/hero_image.png": "/iShoppy_Frontend/static/media/hero_image.2e3a8eb6c0c0697801b4.png",
@@ -15,11 +15,11 @@
     "static/media/company_image_3.jpg": "/iShoppy_Frontend/static/media/company_image_3.775d78a95e20670bdbb6.jpg",
     "index.html": "/iShoppy_Frontend/index.html",
     "main.8d097122.css.map": "/iShoppy_Frontend/static/css/main.8d097122.css.map",
-    "main.1d697c36.js.map": "/iShoppy_Frontend/static/js/main.1d697c36.js.map",
+    "main.ac38bba9.js.map": "/iShoppy_Frontend/static/js/main.ac38bba9.js.map",
     "453.8ab44547.chunk.js.map": "/iShoppy_Frontend/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8d097122.css",
-    "static/js/main.1d697c36.js"
+    "static/js/main.ac38bba9.js"
   ]
 }

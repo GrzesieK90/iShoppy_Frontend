@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://grzesiek90.githup.io/iShoppy_Frontend",
+  "homepage": "https://grzesiek90.github.io/iShoppy_Frontend",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",

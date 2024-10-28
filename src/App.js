@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 
 import Shop from './Pages/Shop';
 import ShopCategory from './Pages/ShopCategory';
@@ -32,6 +32,7 @@ function App() {
         <Route path='/cart' element={<Cart items={cartItems}/>}/>
         <Route path='/login' element={<LoginSign setCartItems={setCartItems}/>}/>
         <Route path="/company" element={<Company />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer/>
       </BrowserRouter>

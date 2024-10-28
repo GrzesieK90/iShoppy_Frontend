@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/iShoppy_Frontend/static/css/main.3a79f364.css",
+    "main.css": "/iShoppy_Frontend/static/css/main.4eb4b83c.css",
     "main.js": "/iShoppy_Frontend/static/js/main.586e6641.js",
     "static/js/453.d855a71b.chunk.js": "/iShoppy_Frontend/static/js/453.d855a71b.chunk.js",
     "static/media/exclusive_image.png": "/iShoppy_Frontend/static/media/exclusive_image.7c67aa4e2b6a95f57d87.png",
@@ -206,12 +206,12 @@
     "static/media/wp14z2.jpg": "/iShoppy_Frontend/static/media/wp14z2.2bce7e431cdfdd70be41.jpg",
     "static/media/wp14z4.jpg": "/iShoppy_Frontend/static/media/wp14z4.c6531f0fb6832af53388.jpg",
     "index.html": "/iShoppy_Frontend/index.html",
-    "main.3a79f364.css.map": "/iShoppy_Frontend/static/css/main.3a79f364.css.map",
+    "main.4eb4b83c.css.map": "/iShoppy_Frontend/static/css/main.4eb4b83c.css.map",
     "main.586e6641.js.map": "/iShoppy_Frontend/static/js/main.586e6641.js.map",
     "453.d855a71b.chunk.js.map": "/iShoppy_Frontend/static/js/453.d855a71b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3a79f364.css",
+    "static/css/main.4eb4b83c.css",
     "static/js/main.586e6641.js"
   ]
 }

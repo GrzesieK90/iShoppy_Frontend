@@ -11,14 +11,14 @@ const Company = () => {
       <h1>Company History</h1>
       <div className='box1'>
       <p className='txt1'>
-        Welcome to iShopping, your number one source for all things shoes. 
+        Welcome to iShoppy, your number one source for all things shoes. 
         We're dedicated to giving you the very best of footwear, with a focus 
         on quality, customer service, and uniqueness.
         <br/>
-        Founded in 2020 by a group of shoe enthusiasts, iShopping has come a 
+        Founded in 2020 by a group of shoe enthusiasts, iShoppy has come a 
         long way from its beginnings in a home office. When we first started 
         out, our passion for providing high-quality, affordable shoes drove 
-        us to do tons of research so that iShopping can offer you the most 
+        us to do tons of research so that iShoppy can offer you the most 
         stylish and comfortable footwear.
         <br/>
         <br />

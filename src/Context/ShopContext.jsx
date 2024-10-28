@@ -1,55 +1,26 @@
 import React, { createContext, useEffect, useState } from "react";
+import productsData from '../Components/Assets/Products/products.json';
 
 export const ShopContext = createContext(null);
 
 const ShopContextProvider = (props) => {
-  const [all_product, setAll_product] = useState([]);
+  const [all_product, setAll_product] = useState(productsData);
   const [cartItems, setCartItems] = useState({});
 
   useEffect(() => {
-    fetch('https://gregdevk.ddns.net:3000/allproducts')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log('Fetched products:', data);
-        setAll_product(data);
-      })
-      .catch((error) => console.error('Error fetching products:', error));
-
-    const token = localStorage.getItem('auth-token');
-    if (token) {
-      fetch('https://gregdevk.ddns.net:3000/getcart', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'auth-token': token,
-          'Content-Type': 'application/json',
-        }
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then((data) => {
-          console.log('Fetched cart items:', data);
-          const formattedCartItems = {};
-          Object.entries(data).forEach(([itemId, quantity]) => {
-            formattedCartItems[itemId] = {
-              quantity,
-              size: null
-            };
-          });
-          setCartItems(formattedCartItems);
-        })
-        .catch((error) => console.error('Error fetching cart items:', error));
+    const storedCartItems = localStorage.getItem('cartItems');
+    if (storedCartItems) {
+      setCartItems(JSON.parse(storedCartItems));
     }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  const clearCart = () => {
+    setCartItems({}); // Resetuje stan koszyka
+  };
 
   const addToCart = (itemId, size) => {
     setCartItems((prev) => ({
@@ -59,67 +30,28 @@ const ShopContextProvider = (props) => {
         size: size || prev[itemId]?.size,
       }
     }));
-
-    const token = localStorage.getItem('auth-token');
-    if (token) {
-      fetch('https://gregdevk.ddns.net:3000/addtocart', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'auth-token': token,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ itemId, size }),
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.text();
-        })
-        .then((data) => console.log('Add to cart response:', data))
-        .catch((error) => console.error('Error adding to cart:', error));
-    }
   };
 
   const removeFromCart = (itemId) => {
     setCartItems((prev) => {
       const updatedCart = { ...prev };
-      delete updatedCart[itemId]; // Całkowite usunięcie przedmiotu z koszyka
+      delete updatedCart[itemId];
       return updatedCart;
     });
-
-    const token = localStorage.getItem('auth-token');
-    if (token) {
-      fetch('https://gregdevk.ddns.net:3000/removefromcart', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'auth-token': token,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ itemId }),
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.text(); // Odpowiedź jako tekst
-        })
-        .then((data) => console.log('Remove from cart response:', data))
-        .catch((error) => console.error('Error removing from cart:', error));
-    }
   };
 
   const updateCartItemQuantity = (itemId, quantity) => {
-    setCartItems((prev) => ({
-      ...prev,
-      [itemId]: {
-        ...prev[itemId],
-        quantity: quantity,
-      }
-    }));
-    // Możesz tutaj dodać żądanie do serwera, aby zaktualizować ilość w bazie danych
+    if (quantity <= 0) {
+      removeFromCart(itemId);
+    } else {
+      setCartItems((prev) => ({
+        ...prev,
+        [itemId]: {
+          ...prev[itemId],
+          quantity: quantity,
+        }
+      }));
+    }
   };
 
   const getTotalCartAmount = () => {
@@ -152,7 +84,9 @@ const ShopContextProvider = (props) => {
     cartItems,
     addToCart,
     removeFromCart,
-    updateCartItemQuantity
+    updateCartItemQuantity,
+    clearCart,
+    setCartItems // Dodanie setCartItems do kontekstu
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './CartItems.css';
 import { ShopContext } from './../../Context/ShopContext';
 import remove_icon from '../Assets/cart_cross_icon.png';
@@ -11,6 +11,11 @@ const CartItems = () => {
       updateCartItemQuantity(itemId, quantity);
     }
   };
+
+  // Monitorowanie zmian w cartItems
+  useEffect(() => {
+    // Działa, gdy cartItems zostanie zaktualizowane
+  }, [cartItems]);
 
   return (
     <div className='cartitems'>
@@ -29,7 +34,7 @@ const CartItems = () => {
           return (
             <div key={e.id}>
               <div className="cartitems-format cartitems-format-main">
-                <img src={e.images[0]} alt="" className='carticon-product-icon' />
+                <img src={require(`../Assets/Products/${e.images[0]}`)} alt="" className='carticon-product-icon' />
                 <p>{e.name}</p>
                 <p>{e.new_price}€</p>
                 <input

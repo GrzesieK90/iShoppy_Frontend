@@ -1,84 +1,96 @@
-.popular{
+.popular {
   background: linear-gradient(90deg, #fff, #686868);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  height: 90vh;
+  gap: 40px; /* Większy odstęp między sekcjami */
+  height: auto; /* Pozwól, by wysokość zależała od ilości treści */
+  padding: 20px 0; /* Dodaj padding, aby zapewnić więcej miejsca */
 }
-.popular h1{
+
+.popular h1 {
   color: #171717;
   font-size: 50px;
   font-weight: 600;
   text-shadow: 3px 3px white;
 }
-.popular hr{
+
+.popular hr {
   width: 200px;
   height: 6px;
   border-radius: 10px;
   background: #252525;
   box-shadow: 3px 3px white;
 }
-.popular-item{
-  margin-top: 50px;
+
+.popular-item {
+  margin-top: 20px;
   display: flex;
+  flex-wrap: wrap; /* Umożliwienie zawijania elementów w mniejszych oknach */
   gap: 30px;
+  justify-content: center;
 }
 
-@media(max-width:1280px){
-  .popular{
-    height: 70vh;
+/* Dostosowanie dla ekranów o maksymalnej szerokości 1280px */
+@media (max-width: 1280px) {
+  .popular {
+    gap: 30px;
   }
-  .popular h1{
+  .popular h1 {
     font-size: 40px;
   }
-  .popular hr{
+  .popular hr {
     width: 160px;
     height: 4px;
   }
-  .popular-item{
+  .popular-item {
     gap: 20px;
     margin-top: 30px;
   }
 }
-@media(max-width:1024px){
-  .popular{
-    height: 60vh;
+
+/* Dostosowanie dla ekranów o maksymalnej szerokości 1024px */
+@media (max-width: 1024px) {
+  .popular {
+    gap: 20px;
   }
-  .popular h1{
+  .popular h1 {
     font-size: 30px;
   }
-  .popular hr{
+  .popular hr {
     width: 120px;
     height: 3px;
   }
-  .popular-item{
+  .popular-item {
     gap: 15px;
     margin-top: 20px;
   }
 }
-@media(max-width:800px){
-  .popular{
-    height: 50vh;
-    gap: 6px;
+
+/* Dostosowanie dla ekranów o maksymalnej szerokości 800px */
+@media (max-width: 800px) {
+  .popular {
+    gap: 10px;
   }
-  .popular h1{
+  .popular h1 {
     font-size: 20px;
     text-shadow: 1px 1px #fff;
   }
-  .popular hr{
+  .popular hr {
     width: 100px;
     box-shadow: 1px 1px #fff;
   }
-  .popular-item{
-    gap: 5px;
+  .popular-item {
+    gap: 10px;
   }
 }
-@media(max-width:500px){
-  .popular{
-    height: 90vh;
+
+/* Dostosowanie dla ekranów o maksymalnej szerokości 500px */
+@media (max-width: 500px) {
+  .popular {
+    height: auto; /* Automatyczna wysokość, aby dynamicznie dostosować ilość treści */
   }
-  .popular-item{
+  .popular-item {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;

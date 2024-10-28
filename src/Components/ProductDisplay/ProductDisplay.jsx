@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './ProductDisplay.css';
 import star_icon from '../Assets/star_icon.png';
 import star_dull_icon from '../Assets/star_dull_icon.png';
@@ -7,13 +7,22 @@ import { ShopContext } from '../../Context/ShopContext';
 const ProductDisplay = (props) => {
   const { product } = props;
   const { addToCart } = useContext(ShopContext);
-  const [mainImage, setMainImage] = useState(product.images[0]);
+  
+  // Ustaw domyślnie pierwsze zdjęcie z array
+  const [mainImage, setMainImage] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
   const [error, setError] = useState('');
 
+  // Użyj useEffect, aby ustawić domyślnie pierwsze zdjęcie po załadowaniu komponentu
+  useEffect(() => {
+    if (product.images && product.images.length > 0) {
+      setMainImage(require(`../../Components/Assets/Products/${product.images[0]}`)); // Domyślnie pierwsze zdjęcie
+    }
+  }, [product.images]);
+
   const handleSizeChange = (event) => {
     setSelectedSize(event.target.value);
-    setError(''); // Clear error message when size is selected
+    setError(''); // Wyczyść błąd po wybraniu rozmiaru
   };
 
   const handleAddToCart = () => {
@@ -48,18 +57,21 @@ const ProductDisplay = (props) => {
     ));
   };
 
-  console.log('Product category:', product.category);
-
   return (
     <div className='productdisplay'>
       <div className="productdisplay-left">
         <div className="productdisplay-img-list">
           {product.images.map((img, index) => (
-            <img key={index} src={img} alt={product.name} onClick={() => setMainImage(img)} />
+            <img 
+              key={index} 
+              src={require(`../../Components/Assets/Products/${img}`)} // Załaduj obraz z tablicy
+              alt={product.name} 
+              onClick={() => setMainImage(require(`../Assets/Products/${img}`))} // Zaktualizuj główne zdjęcie po kliknięciu
+            />
           ))}
         </div>
         <div className="productdisplay-img">
-          <img className='productdisplay-main-img' src={mainImage} alt={product.name} />
+          <img className='productdisplay-main-img' src={mainImage} alt={product.name} /> {/* Główne zdjęcie */}
         </div>
       </div>
       <div className="productdisplay-right">
@@ -77,8 +89,7 @@ const ProductDisplay = (props) => {
           <div className="productdisplay-right-price-new">{product.new_price}€</div>
         </div>
         <div className="productdisplay-right-description">
-          A lightweight, usually knitted, pullover shirt, close-fitting and with 
-          a round neckline and short sleeves, worn as an undershirt or outer garment.
+          {product.description} {/* Dynamiczny opis */}
         </div>
         <div className="productdisplay-right-size">
           <h1>Select Size</h1>

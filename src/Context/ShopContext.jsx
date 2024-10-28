@@ -7,7 +7,7 @@ const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
 
   useEffect(() => {
-    fetch('http://192.168.1.107:3000/allproducts')
+    fetch('https://gregdevk.ddns.net:3000/allproducts')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -22,7 +22,7 @@ const ShopContextProvider = (props) => {
 
     const token = localStorage.getItem('auth-token');
     if (token) {
-      fetch('http://192.168.1.107:3000/getcart', {
+      fetch('https://gregdevk.ddns.net:3000/getcart', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -62,7 +62,7 @@ const ShopContextProvider = (props) => {
 
     const token = localStorage.getItem('auth-token');
     if (token) {
-      fetch('http://192.168.1.107:3000/addtocart', {
+      fetch('https://gregdevk.ddns.net:3000/addtocart', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -91,7 +91,7 @@ const ShopContextProvider = (props) => {
 
     const token = localStorage.getItem('auth-token');
     if (token) {
-      fetch('http://192.168.1.107:3000/removefromcart', {
+      fetch('https://gregdevk.ddns.net:3000/removefromcart', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

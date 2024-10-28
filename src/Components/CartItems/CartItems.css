@@ -152,8 +152,11 @@
 @media(max-width:500px){
   .cartitems-format-main{
     display: none;
-    grid-template-columns: 0.5fr 3fr 0.5fr;
+    grid-template-columns: 1fr 1fr 0.5fr 0.5fr 0.5fr 0.3fr 0.2fr;
     gap: 10px;
+  }
+  .carticon-product-icon{
+    height: 20vw;
   }
   .cartitems-format{
     display: grid;

@@ -122,6 +122,7 @@
 }
 @media(max-width:500px){
   .offers{
+    margin-top: 1px;
     height: 25vh;
     padding-bottom: 50px;
   }

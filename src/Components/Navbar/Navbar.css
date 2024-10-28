@@ -200,14 +200,19 @@
 
 @media(max-width:500px){
   .navbar{
+    width: 99vw;
     padding: 8px 0px;
     gap: 0;
+  }
+  .navbar.sticky{
+    width: 96vw;
   }
   .nav-logo{
     transform: scale(0.8);
   }
   .nav-menu{
     height: 70px;
+    width: 90vw;
     top: 95px;
   }
   .nav-login-cart{

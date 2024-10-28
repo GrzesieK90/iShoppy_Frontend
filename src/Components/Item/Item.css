@@ -68,9 +68,10 @@
 }
 @media(max-width:500px){
   .item{
-    width: 160px;
+    margin-left: -10px;
+    width: 130px;
   }
   .item img{
-    width: 160px;
+    width: 130px;
   }
 }

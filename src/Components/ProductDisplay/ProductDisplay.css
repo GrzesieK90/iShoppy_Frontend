@@ -237,6 +237,7 @@
     gap: 10px;
     flex-direction: row;
     margin: auto;
+    margin-left: 5vw;
   }
   .productdisplay-img-list{
     margin-top: -10px;
@@ -244,10 +245,11 @@
     gap: 8px;
   }
   .productdisplay-img-list img{
-    height: 75px;
+    height: 100px;
   }
   .productdisplay-main-img{
     height: 330px;
+    width: 300px;
   }
   .productdisplay-right{
     margin: 5px;

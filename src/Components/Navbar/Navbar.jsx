@@ -41,7 +41,7 @@ const Navbar = () => {
       <Link style={{ textDecoration: 'none' }} to='/'>
         <div className='nav-logo' onClick={() => { setMenu('shop'); }}>
           <img src={logo} alt='' />
-          <p><i>iShopping</i></p>
+          <p><i>iShoppy</i></p>
         </div>
       </Link>
       <img className='nav-dropdown' onClick={dropdown_toggle} src={nav_dropdown} alt="" />
